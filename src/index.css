@@ -1,0 +1,64 @@
+/* Tailwind base */
+@import "tailwindcss";
+
+/* Accent gradient */
+:root {
+  --accent-from: #f59e0b;  /* orange */
+  --accent-to:   #ec4899;  /* pink   */
+  --accent-grad: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: #0b0b0f;
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Center vertical spine */
+
+
+/* Dot glow */
+
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 2. Keyframes for the Profile Ring Rotation */
+@keyframes spin-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3. Style for the Animated Ring */
+.profile-ring-animation {
+  /* Inherit dimensions from parent div */
+  width: 100%;
+  height: 100%;
+
+  /* Use the accent gradient for the ring/halo */
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 200deg,
+    var(--accent-to) 300deg, /* Pink */
+    var(--accent-from) 360deg /* Orange/Yellow */
+  );
+  
+  /* Apply the rotation animation */
+  animation: spin-ring 5s linear infinite;
+  
+  /* Create a hole in the middle to make it look like a ring (like the video) */
+  mask-image: radial-gradient(circle at center, transparent 70%, black 70%);
+  -webkit-mask-image: radial-gradient(circle at center, transparent 70%, black 70%);
+}

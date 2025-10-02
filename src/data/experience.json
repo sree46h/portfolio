@@ -1,0 +1,24 @@
+[
+  {
+    "company": "6D Technologies",
+    "role": "Full-Stack Developer",
+    "period": "Nov 2021 – Aug 2023",
+    "stack": ["React", "Next.js", "TypeScript", "Node", "Express", "SQL", "Docker", "Kubernetes", "GitLab CI/CD"],
+    "bullets": [
+      "Designed and shipped telecom DMS modules used by thousands of internal users.",
+      "Built real-time dashboards (WebSockets, Chart.js) and reduced UI bugs by 40%.",
+      "Hardened APIs and improved response times with query optimization and caching."
+    ]
+  },
+  {
+    "company": "Cognizant",
+    "role": "Software Engineer",
+    "period": "Apr 2020 – Nov 2021",
+    "stack": ["React", "Redux", "Node", "Keycloak", "Docker", "K8s"],
+    "bullets": [
+      "Developed banking/insurance portals with secure auth (Keycloak).",
+      "Owned complex business logic for coverage calculations in JS.",
+      "Containerized services and improved release reliability."
+    ]
+  }
+]

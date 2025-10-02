@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Library Management System (LMS)",
+    "description": "A full-stack web application replicating my college's library system, allowing students to register, search, borrow, and return books online, while administrators manage inventory, users, and overdue records.",
+    "tags": ["React.js","Redux","Node.js","Express.js","MongoDB","Mongoose","JWT","Material UI"],
+    "github_url": "https://github.com/sreeharinaidu46/library-management-system",
+    "image": "/library_site.jpeg"
+  },
+  {
+    "title": "TA Management System",
+    "description": "A full-stack system that streamlines university TA workflows with role-based views for Applicants, Instructors, and the TA Committee.",
+    "tags": ["React 18","Redux","Node.js","Express.js","MongoDB","Mongoose","Multer"],
+    "github_url": "https://github.com/sreeharinaidu46/ta-management-system",
+    "image": "/ta_site.jpeg"
+  },
+  {
+    "title": "Appointment Booking System",
+    "description": "Scheduling platform with Spring Boot backend (JWT, layered architecture) and a React + Tailwind frontend.",
+    "tags": ["Java 17","Spring Boot","Spring Security","MySQL","React","Redux Toolkit","Tailwind CSS"],
+    "github_url": "https://github.com/sreeharinaidu46/Appointment_Booking_System",
+    "image": "/appointment_site.png"
+  },
+  {
+    "title": "EmotionSense AI",
+    "description": "Multimodal deep learning app that detects emotions from audio + transcripts (Flask + Keras + Whisper).",
+    "tags": ["Python","Flask","TensorFlow","Keras","Whisper","Librosa"],
+    "github_url": "https://github.com/sreeharinaidu46/emotionsense-ai",
+    "image": "/emotioAI_site.jpeg"
+  },
+  {
+    "title": "WeatherApp",
+    "description": "React + TypeScript app using OpenWeather API. Deployed to Render.",
+    "tags": ["React","TypeScript","Vite","OpenWeather API"],
+    "live_url": "https://weatherapp-6nhj.onrender.com/",
+    "github_url": "https://github.com/sreeharinaidu46/WeatherApp",
+    "image": "/weather_site.png"
+  },
+  {
+    "title": "My Portfolio Site",
+    "description": "Personal portfolio built with React, Tailwind, and modern UI patterns.",
+    "tags": ["React","Tailwind CSS"],
+    "live_url": "https://www.sreeharinaidu.com/",
+    "github_url": "https://github.com/sreeharinaidu46/Portfolio.git",
+    "image": "/portfolio_site.png"
+  }
+]

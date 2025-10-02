@@ -1,0 +1,116 @@
+/* AboutMeScrollHero.css */
+
+/* --- Container Setup --- */
+.about-me-hero-wrapper {
+    /* Set a reasonable height for the section */
+    height: 100vh; 
+    overflow: hidden; /* Hide the main scrollbar */
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.about-me-hero-container {
+    /* This element is the one that scrolls */
+    height: 100%; 
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Optional: for smoother snapping, but we use JS for revealing */
+}
+
+/* --- Sticky Foreground (Main Text) --- */
+.sticky-foreground {
+    position: sticky;
+    top: 0;
+    /* Center the sticky box vertically in the viewport */
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none; /* Allows mouse events to pass through to the scrollable background */
+    
+    /* Make the text visible over the dark background */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); 
+    background: rgba(11, 11, 15, 0.6); /* Semi-transparent overlay for contrast */
+    backdrop-filter: blur(5px);
+}
+
+.intro-text-wrapper {
+    max-width: 800px;
+    padding: 2rem;
+    pointer-events: auto; /* Re-enable pointer events on the text content */
+}
+
+/* --- Scrollable Background (Company Data) --- */
+.scroll-background {
+    /* Set height to allow scrolling to reveal all content */
+    height: auto; 
+    position: relative;
+    z-index: 5;
+    /* Ensure the scrollable area is much taller than the viewport */
+    padding-top: 50vh; 
+    padding-bottom: 50vh; 
+}
+
+.scroll-block {
+    height: 50vh; /* Set height for each block to control scroll spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* The actual text content to be revealed */
+.scroll-block-text {
+    display: flex;
+    flex-direction: column;
+    /* Start the text transparent and slightly off-center */
+    opacity: 0;
+    transform: translateX(100px);
+    
+    /* Transition for the reveal effect */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+    
+    /* Font styling for the company data */
+    font-size: 3.5rem; /* Large font size */
+    font-weight: 800;
+    color: transparent; /* Text color is transparent by default */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2); /* Thin white outline */
+    white-space: nowrap;
+}
+
+/* Active State: Applied by JavaScript */
+.scroll-block-text.is-active {
+    opacity: 1;
+    transform: translateX(0);
+    /* NEW: Solid color for active state */
+    color: var(--accent-from); 
+    -webkit-text-stroke: 1px transparent; 
+}
+
+/* Styling for individual text parts */
+.role-name, .date-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    -webkit-text-stroke: 0; /* Remove outline for secondary text */
+    color: rgba(255, 255, 255, 0.5); /* Lighter color for secondary text */
+}
+
+.extra-scroll-padding {
+    /* Extra space at the bottom to ensure the last block can reach the center */
+    height: 50vh; 
+}
+
+/* Mobile adjustments (adjust font sizes for smaller screens) */
+@media (max-width: 768px) {
+    .scroll-block-text {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+    .role-name, .date-name {
+        font-size: 1rem;
+    }
+    .intro-text-wrapper {
+        padding: 1rem;
+    }
+}

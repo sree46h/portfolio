@@ -1,0 +1,118 @@
+/* Add this to your main CSS file (e.g., Timeline.css or Index.css) */
+
+/* Hexagon container for positioning and tooltip */
+.skill-badge-container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    /* Adjust margin to control density of badges */
+    margin: 1.5rem 0.5rem; 
+    width: 80px; /* Base width for the hexagon */
+    /* Height calculation: width / cos(30) or width / 0.866 */
+    height: 92.4px; 
+    z-index: 10;
+}
+
+/* The actual Hexagon element with clip-path (The dark inner shape) */
+.skill-badge-icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    /* 1. ACCENTED THEME BACKGROUND: 
+       A dark background blended subtly with the accent color
+    */
+    background: linear-gradient(135deg, rgba(17, 19, 29, 0.9) 65%, rgba(245, 158, 11, 0.15));
+    
+    /* 🎨 THE HEXAGON SHAPE */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* REMOVED: Initial border is now handled by ::before */
+    border: none;
+    
+    /* Set a custom filter for the background glow (initial state) */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.05));
+    
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    /* ADDED: Required for the rotating ::before element */
+    transform-style: preserve-3d; 
+}
+
+/* 2. NEW: Pseudo-element for the Rotating Gradient Border */
+.skill-badge-icon::before {
+    content: "";
+    position: absolute;
+    /* Slightly larger than the icon to act as the border */
+    width: 105%; 
+    height: 105%; 
+    top: -2.5%;
+    left: -2.5%;
+    
+    /* Accent Gradient Border (uses the --accent-grad variable) */
+    background: var(--accent-grad);
+    
+    /* Must use the same clip-path for the hexagonal shape */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    
+    /* Ensure it's behind the icon content */
+    z-index: -1; 
+    
+    /* Set up rotation transition */
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Hover effect on the hexagon */
+.skill-badge-container:hover .skill-badge-icon {
+    transform: translateY(-5px); /* Lift effect */
+    /* Removed: border-color change, as ::before handles the border now */
+    
+    /* 🌟 Intense glow effect on hover */
+    filter: drop-shadow(0 0 10px var(--accent-from)) 
+            drop-shadow(0 0 20px var(--accent-to));
+}
+
+/* 3. ROTATE THE BORDER ON HOVER */
+.skill-badge-container:hover .skill-badge-icon::before {
+    transform: rotate(60deg); /* The rotation effect */
+}
+
+
+/* Tooltip/Name - Hidden by default */
+.skill-badge-name {
+    position: absolute;
+    bottom: -1.5rem; 
+    background-color: #333;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 20;
+}
+
+/* Show tooltip on hover (Pop-up functionality) */
+.skill-badge-container:hover .skill-badge-name {
+    opacity: 1;
+}
+
+/* Optional: Custom color overrides for specific icons 
+   You can still use this section to add colored glows if you want
+   specific icons to have a custom primary glow color instead of the accent gradient.
+*/
+/*
+.skill-badge-container:nth-child(1) .skill-badge-icon { / * React * /
+    filter: drop-shadow(0 0 10px #61dafb);
+}
+.skill-badge-container:nth-child(3) .skill-badge-icon { / * TypeScript * /
+    filter: drop-shadow(0 0 10px #3178c6);
+}
+*/

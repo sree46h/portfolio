@@ -1,0 +1,346 @@
+/* Timeline.css */
+
+:root {
+  --accent-from: #f59e0b;
+  --accent-to: #ec4899;
+  --accent-grad: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+}
+
+.timeline-sec {
+  padding: 10rem 0rem 0rem 0rem; 
+  max-width: 1200px; 
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 🚩 HEADER STRUCTURE */
+.timeline-header {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    position: absolute; 
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    padding: 0; 
+    z-index: 1; 
+}
+
+/* 🚩 HEADING: Far Top-Left */
+.sec-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+
+/* 🚩 MOTTO TEXT: Centered over the spine area */
+.motto-wrap {
+    text-align: center;
+    margin-top: 3.5rem; 
+    width: 100%; 
+}
+
+.top-motto {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--accent-from); 
+    margin-bottom: 0.25rem;
+}
+
+.top-motto-subtitle {
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* 🚩 BOTTOM TEXT */
+.bottom-motto {
+    text-align: center;
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 1rem;
+    margin-top: 3rem;
+}
+
+/* Timeline Body */
+.timeline-body {
+    position: relative;
+}
+
+/* SPINE/RAIL */
+.timeline-rail {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px; 
+  height: 100%;
+  transform: translateX(-50%);
+  background: #2a2a38; 
+  opacity: 1; 
+  border-radius: 2px;
+}
+
+.timeline-rail::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; 
+  background: var(--accent-grad);
+  border-radius: 2px;
+}
+
+/* 🚀 ANIMATION */
+.timeline-sec.animate-in .timeline-rail::after {
+  animation: fillSpine 4s ease-out forwards;
+}
+
+@keyframes fillSpine {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+
+.timeline-list {
+  display: grid;
+  gap: 3rem;
+  padding: 0; 
+}
+
+/* Grid Layout: DESKTOP */
+.timeline-row {
+  grid-template-columns: 47% 6% 47%; 
+  display: grid;
+  align-items: center;
+  justify-content: center; 
+}
+
+.dot-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 20px; 
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05), 0 0 10px 2px var(--accent-from); 
+  z-index: 10; 
+}
+
+/* Card Positioning */
+.card-wrap {
+  perspective: 1000px;
+  padding: 0;
+  width: 100%; 
+}
+.card-wrap.left {
+  justify-self: end; 
+}
+.card-wrap.right {
+  justify-self: start; 
+}
+
+/* Flip Card (with padding/border effect) */
+.flip {
+  width: 100%; 
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  padding: 3px; 
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1); 
+}
+
+.flip:hover {
+  transform: rotateY(180deg);
+  background: var(--accent-grad);
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(1rem - 3px); 
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 1.5rem;
+  background: #11131d;
+  border: none; 
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.front-content {
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 0; 
+}
+
+.dates {
+  color: #9ca3af;
+  margin-top: 0.25rem;
+  white-space: nowrap; 
+}
+
+.hint {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--accent-grad);
+  color: #11131d; 
+}
+
+.back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; 
+  padding: 0.5rem 0; 
+}
+
+.role {
+  font-size: 1.25rem; 
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Label for skills/coursework */
+.back-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* NEW: Comma separated list container */
+.course-list {
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.5rem 0 0 0;
+    padding: 0 0.5rem; 
+    color: #11131d; 
+    /* Ensures text wraps nicely */
+    word-break: break-word; 
+}
+
+/* Removed styles for .chip-group and .chip */
+
+
+/* ---------------------------------------------------- */
+/* --- Responsive/Mobile Styles (max-width: 768px) --- */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .timeline-sec {
+      padding: 1rem; 
+      padding-top: 1rem; 
+  }
+
+  /* Header elements revert to standard flow for stacking */
+  .timeline-header {
+      position: static;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+  }
+
+  .sec-title {
+    position: static;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .motto-wrap {
+      margin-top: 0;
+      width: 100%;
+      text-align: left;
+      padding-left: 1rem;
+  }
+  
+  .top-motto, .top-motto-subtitle {
+      text-align: left;
+  }
+  
+  /* Timeline Structure changes to a single column */
+  .timeline-row {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding-left: 1rem; 
+  }
+  
+  /* Rail moves to the left of the content */
+  .timeline-rail {
+    left: 20px; 
+    transform: none;
+    width: 3px; 
+  }
+  
+  /* Card Wrappers are all placed in the second column */
+  .card-wrap,
+  .card-wrap.left,
+  .card-wrap.right {
+    justify-self: start;
+    grid-column: 2 / 3; 
+    padding: 0;
+  }
+  
+  /* Dot column is placed in the first column */
+  .dot-column {
+    grid-column: 1 / 2;
+    padding-left: 0;
+    padding-right: 0.5rem; 
+  }
+  
+  /* Card width fills its column */
+  .flip {
+    width: 100%; 
+  }
+}
