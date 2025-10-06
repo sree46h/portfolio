@@ -15,6 +15,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.footer-gradient-border {
+  position: relative;
+  /* Use padding-top to create space for the pseudo-element border */
+  padding-top: 2rem; /* Adjust this value (e.g., 2rem) based on your original py-10 */
+  border-top: none !important; /* Remove the original Tailwind border-t */
+}
+
+.footer-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Thickness of the border */
+  background: var(--accent-grad);
+}
 
 /* Center vertical spine */
 

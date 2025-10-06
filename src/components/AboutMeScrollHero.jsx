@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 // The official text, split into logical sentences/phrases for the reveal
 const INTRO_TEXT_CHUNKS = [
   "Hi, I’m Sreeharinaidu Rangani, an experienced Software Developer and Computer Science graduate passionate about creating impactful digital solutions.",
-  "With a strong background in Full-Stack Web Development, AI Automation, and AI Agent Development, I enjoy turning complex ideas into clean, functional, and creative experiences.",
-  "Over the past few years, I’ve built scalable web applications, secure backend systems, and intelligent AI-driven workflows using technologies like React.js, Node.js, Express.js, SQL, MongoDB, Postgres, AWS, Docker, and Kubernetes.",
-  "Beyond coding, I thrive on problem-solving, continuous learning, and pushing boundaries—whether that means mentoring teammates, leading projects, or experimenting with new technologies.",
+  "With a strong background in Full Stack Web Development, AI Automation, and AI Agent Development, I enjoy turning complex ideas into clean, functional, and creative experiences.",
+  "Over the past few years, I’ve built scalable web applications, secure backend systems, and intelligent AI driven workflows using technologies like React.js, React Native, Node.js, Express.js, SQL, MongoDB, Postgres, AWS, Docker, and Kubernetes.",
+  "Beyond coding, I thrive on problem solving, continuous learning, and pushing boundaries, whether that means mentoring teammates, leading projects, or experimenting with new technologies.",
   "My portfolio reflects not just the projects I’ve built, but also my journey of growth, curiosity, and dedication to innovation.",
 ];
 
