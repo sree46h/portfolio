@@ -50,7 +50,7 @@ export default function Hero() {
             {/* 🌟 Download Résumé Button (Solid Accent Gradient) */}
             <a 
               href={profile.resume_url} 
-              download
+             download="Sreehari_Resume.pdf"
               className="px-4 py-2 rounded-xl text-white font-medium hover:no-underline transition-all duration-300"
               style={{ backgroundImage: 'var(--accent-grad)', boxShadow: '0 4px 10px rgba(245, 158, 11, 0.4)' }}
             >
