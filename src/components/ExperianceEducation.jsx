@@ -1,8 +1,6 @@
 import React, { useMemo, useRef, useState, useEffect } from "react";
 import "./Timeline.css";
 
-// The Chip component is removed as the content is now plain text
-
 // Component for a single item in the timeline
 function TimelineItem({ item, index }) {
   // Determine if the card is on the left (even index) or right (odd index)
@@ -11,7 +9,7 @@ function TimelineItem({ item, index }) {
   const label = isExperience ? "Skills:" : "Coursework:";
   const itemsArray = isExperience ? item.stack : item.courses;
 
-  // NEW: Create a comma-separated string from the array
+  // Create a comma-separated string from the array
   const courseList = itemsArray.join(', ');
 
   // JSX for the flippable card content
@@ -31,13 +29,8 @@ function TimelineItem({ item, index }) {
         {/* BACK FACE - UPDATED CONTENT STRUCTURE */}
         <div className="flip-face flip-back">
           <div className="back-content">
-            {/* Main title (e.g., "M.S. in Computer Science") at the top */}
             <h4 className="role">{item.title}</h4> 
-            
-            {/* Explicit Label */}
             <p className="back-label">{label}</p>
-            
-            {/* Comma-separated list */}
             <p className="course-list">{courseList}</p>
           </div>
         </div>
@@ -48,7 +41,7 @@ function TimelineItem({ item, index }) {
   return (
     <li className="timeline-row">
       
-      {/* 1. LEFT Card Column */}
+      {/* 1. LEFT Card Column (Content only if index is even) */}
       <div className="card-column left">
         {isLeft ? <div className="card-wrap left">{CardContent}</div> : <div />}
       </div>
@@ -58,7 +51,7 @@ function TimelineItem({ item, index }) {
         <span className="dot" />
       </div>
 
-      {/* 3. RIGHT Card Column */}
+      {/* 3. RIGHT Card Column (Content only if index is odd) */}
       <div className="card-column right">
         {!isLeft ? <div className="card-wrap right">{CardContent}</div> : <div />}
       </div>
@@ -82,7 +75,7 @@ export default function Timeline() {
     [],
   );
 
-  // State and Ref for Scroll-Triggered Animation (Kept for completeness)
+  // State and Ref for Scroll-Triggered Animation
   const [isVisible, setIsVisible] = useState(false);
   const timelineRef = useRef(null);
 

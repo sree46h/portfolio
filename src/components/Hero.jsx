@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import profile from "../data/profile.json";
 import AnimatedTitle from "./AnimatedTitle"; 
 
@@ -13,6 +13,21 @@ const roles = [
 ];
 
 export default function Hero() {
+  const [showImage, setShowImage] = useState(false);
+  // Removed showBlast state
+
+  useEffect(() => {
+    // Show the image after a short delay (e.g., 1 second)
+    // The ring animation will start immediately and run infinitely in the background.
+    const imageShowTimer = setTimeout(() => {
+      setShowImage(true);
+    }, 1000); // Image appears after 1 second
+
+    return () => {
+      clearTimeout(imageShowTimer);
+    };
+  }, []); 
+
   return (
     <section id="home" className="scroll-mt-24 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -35,6 +50,7 @@ export default function Hero() {
             {/* 🌟 Download Résumé Button (Solid Accent Gradient) */}
             <a 
               href={profile.resume_url} 
+              download
               className="px-4 py-2 rounded-xl text-white font-medium hover:no-underline transition-all duration-300"
               style={{ backgroundImage: 'var(--accent-grad)', boxShadow: '0 4px 10px rgba(245, 158, 11, 0.4)' }}
             >
@@ -44,7 +60,6 @@ export default function Hero() {
             {/* 🌟 Contact Button (Outline Accent Gradient) */}
             <a 
               href={`mailto:${profile.email}`} 
-              // Uses a pseudo-element trick for a gradient border effect with Tailwind
               className="px-4 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 text-zinc-300 hover:bg-white/10 hover:no-underline transition-all duration-300 button-accent-outline"
             >
               Contact
@@ -58,12 +73,17 @@ export default function Hero() {
         <div className="order-1 md:order-2 flex justify-center">
           <div className="relative w-72 h-72 md:w-96 md:h-96">
             <div className="absolute inset-[-10px] rounded-full profile-ring-animation"> 
+              {/* The spinning ring element (now infinite) */}
             </div>
-            <img
-              src="/my_image.jpg"
-              alt="Portrait"
-              className="relative z-10 w-full h-full object-cover rounded-full transition-transform duration-500 hover:scale-105"
-            />
+
+            {/* PROFILE IMAGE: Appears after the initial delay */}
+            {showImage && (
+              <img
+                src="/my_image.jpg"
+                alt="Portrait"
+                className="relative z-10 w-full h-full object-cover rounded-full transition-transform duration-500 hover:scale-105 hero-image-appear"
+              />
+            )}
           </div>
         </div>
 
