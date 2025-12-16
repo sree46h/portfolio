@@ -160,7 +160,7 @@
 /* Flip Card Styles */
 .flip {
   width: 100%; 
-  height: 200px;
+  height: 250px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -279,7 +279,9 @@
       padding: 1rem; 
       padding-top: 1rem; 
   }
-
+  .flip{
+    height: 350px;
+  }
   /* Header elements revert to standard flow for stacking */
   .timeline-header { position: static; flex-direction: column; align-items: center; margin-bottom: 2rem; padding: 0 1rem; }
   .sec-title { position: static; text-align: left; margin-bottom: 1rem; }

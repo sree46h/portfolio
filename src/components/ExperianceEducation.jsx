@@ -65,7 +65,7 @@ const MemoizedTimelineItem = React.memo(TimelineItem);
 export default function Timeline() {
   const items = useMemo (
     () => [
-      
+       { type: "exp", title: "Software Developer (Contract)", org: "Bank of America", dates: "June 2025 – Nov 2025", logo: "/bankofamerica.png", stack: ["Microservices", "Node.js", "Express.js", "TypeScript", "SQL", "Docker", "Kubernetes", "Github Actions"], },
       { type: "edu", title: "M.S. in Computer Science", org: "Florida Atlantic University (FAU)", dates: "Jul 2023 – Apr 2025", logo: "/fau.png", courses: ["Software Engineering", "Analysis of Algorithms", "Computer Data Security", "Cloud Security", "Cloud Computing", "Deep Learning", "Social Media & Web Analytics", "Internet of Things (IoT)"], },
       { type: "exp", title: "Full-Stack Developer", org: "6D Technologies", dates: "Nov 2021 – Aug 2023", logo: "/6d_tech.jpeg", stack: ["React.js", "Node.js", "Express.js", "TypeScript", "SQL", "Docker", "Kubernetes", "GitLab CI/CD"], },
       { type: "exp", title: "Programming Analyst", org: "Cognizant", dates: "Apr 2020 – Nov 2021", logo: "/cognizant.png", stack: ["React.js", "Node.js", "Redux", "Jest", "Docker"], },

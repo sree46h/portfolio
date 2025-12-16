@@ -9,6 +9,7 @@ const roles = [
   "Fullstack Developer",
   "MERN Stack Developer",
   "Cloud Engineer",
+  "Data Engineer",
   "AI Software Engineer",
 ];
 
@@ -47,17 +48,16 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             
-            {/* 🌟 Download Résumé Button (Solid Accent Gradient) */}
+           
             <a 
-              href={`${import.meta.env.BASE_URL}Sreehari_Resume.pdf`}
-             download="Sreehari_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Sreehari Naidu FullStack.pdf`}
+             download="Sreehari Naidu.pdf"
               className="px-4 py-2 rounded-xl text-white font-medium hover:no-underline transition-all duration-300"
               style={{ backgroundImage: 'var(--accent-grad)', boxShadow: '0 4px 10px rgba(245, 158, 11, 0.4)' }}
             >
-              Download Résumé
+              Download Resume
             </a>
-            
-            {/* 🌟 Contact Button (Outline Accent Gradient) */}
+
             <a 
               href={`mailto:${profile.email}`} 
               className="px-4 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 text-zinc-300 hover:bg-white/10 hover:no-underline transition-all duration-300 button-accent-outline"
